@@ -27,7 +27,9 @@ class DataModel {
   update(obj, id) {
     const findObj = this.data.find((user) => user.id === id);
     if (findObj) {
-      Object.assign(findObj, obj);
+      for (let key in obj) {
+        findObj[key] = obj[key];
+      }
       return true;
     } else {
       return false;
@@ -35,13 +37,13 @@ class DataModel {
   }
 
   delete(id) {
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i] == undefined) {
-        return false;
-      } else if (this.data[i].id === id) {
-        this.data.splice(i, 1);
-        return true;
-      }
+    const user = this.data.find((obj) => obj.id === id);
+    let objIndex = this.data.indexOf(user);
+    if (user) {
+      this.data.splice(objIndex, 1);
+      return true;
+    } else {
+      return false;
     }
   }
   // this method will be overriden in the sub classes
