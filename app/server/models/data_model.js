@@ -36,7 +36,9 @@ class DataModel {
 
   delete(id) {
     for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].id === id) {
+      if (this.data[i] == undefined) {
+        return false;
+      } else if (this.data[i].id === id) {
         this.data.splice(i, 1);
         return true;
       }
