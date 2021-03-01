@@ -27,7 +27,7 @@ assert(users.authenticate(john.email, john.password) === true);
 assert(users.update({ firstname: 'jane' }, john.id) === true);
 assert(users.getById(john.id).getFullName() === 'jane doe', `user detail is not being updated by the update method`)
 assert(users.delete(jones.id) === true);
-assert(users.getById(jones.id) === null, `deleted user should no longer be avaiable in the data array. The getById method should now return null for the specified id`)
+assert(users.getById(jones.id) === null, `deleted user should no longer be avaiable in the data array. The getBy Id method should now return null for the specified id`)
 assert(users.getAll().length === 1);
 
 
