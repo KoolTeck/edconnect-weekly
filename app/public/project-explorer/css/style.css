@@ -1,0 +1,10 @@
+/* handle form */
+.alert {
+ display: none;
+}
+
+#login,
+#logout,
+#username {
+ cursor: pointer;
+}
