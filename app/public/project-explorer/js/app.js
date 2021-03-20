@@ -213,6 +213,7 @@ const getProjects = async () => {
   if (resp.ok) {
     projects = await resp.json();
     projects.length = 4;
+    projects.reverse();
     projects.forEach((project) => {
       const authors = project.authors.map((tag) => tag.trim()).join(", ");
       const tag = project.tags.map((tag) => tag.trim()).join(" ");
