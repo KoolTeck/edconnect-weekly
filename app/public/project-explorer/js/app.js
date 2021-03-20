@@ -143,11 +143,10 @@ if (path.includes("login.html")) {
           password: password,
         }),
       });
-      if (resp.status == 200) {
+      if (resp.status === 200) {
         const user = await resp.json();
         setCookie("uid", user.data.id);
-        window.location.href =
-          "http://localhost:4000/project-explorer/index.html";
+        window.location.href = "index.html";
       } else {
         alert.style.display = "block";
         alert.textContent = "Invalid email/password";
@@ -195,11 +194,9 @@ if (path.includes("createproject.html")) {
       });
 
       const reply = await resp.json();
-      console.log(resp);
       if (resp.status === 200) {
         window.location.href = "index.html";
       } else {
-        console.log(reply);
         alert.style.display = "block";
         reply.errors.forEach((err) => {
           alert.innerHTML += `<p>${err}</p>`;
