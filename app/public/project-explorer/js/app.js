@@ -98,32 +98,32 @@ if (path.includes("index.html")) {
     setLogin();
     getProjects();
   };
-
-  const setLogin = async () => {
-    const signupLink = document.getElementById("signup");
-    const loginLink = document.getElementById("login");
-    const logout = document.getElementById("logout");
-    const userName = document.getElementById("username");
-    const cvalue = getCookie("uid");
-    if (cvalue) {
-      const resp = await fetch(`/api/users/${cvalue}`);
-      if (resp.ok) {
-        const userInfo = await resp.json();
-        userName.textContent = `Hi, ${userInfo.firstname} `;
-        logout.textContent = "Logout";
-        signupLink.style.display = "none";
-        loginLink.style.display = "none";
-      }
-
-      logout.addEventListener("click", () => {
-        deleteCookie("uid");
-        window.location.href =
-          "http://localhost:4000/project-explorer/index.html";
-      });
-    }
-  };
 }
 
+// setting log in status of user
+const setLogin = async () => {
+  const signupLink = document.getElementById("signup");
+  const loginLink = document.getElementById("login");
+  const logout = document.getElementById("logout");
+  const userName = document.getElementById("username");
+  const cvalue = getCookie("uid");
+  if (cvalue) {
+    const resp = await fetch(`/api/users/${cvalue}`);
+    if (resp.ok) {
+      const userInfo = await resp.json();
+      userName.textContent = `Hi, ${userInfo.firstname} `;
+      logout.textContent = "Logout";
+      signupLink.style.display = "none";
+      loginLink.style.display = "none";
+    }
+
+    logout.addEventListener("click", () => {
+      deleteCookie("uid");
+      window.location.href =
+        "http://localhost:4000/project-explorer/index.html";
+    });
+  }
+};
 // handling log in by existing user
 if (path.includes("login.html")) {
   window.onload = () => {
@@ -163,6 +163,7 @@ if (path.includes("createproject.html")) {
     if (checkCookieVal === "") {
       window.location.href = "login.html";
     } else {
+      setLogin();
       createProject();
     }
   };
@@ -238,9 +239,11 @@ const getProjects = async () => {
 if (path.includes("viewproject.html")) {
   let projectId = location.search;
   projectId = projectId.substring(4);
+  const id = getCookie("uid");
 
   window.onload = () => {
     getProject();
+    setLogin();
   };
 
   const getProject = async () => {
@@ -254,7 +257,6 @@ if (path.includes("viewproject.html")) {
     if (resp.ok) {
       const project = await resp.json();
       projectName.textContent = `${project.name}`;
-      projectAuthor.innerHTML = `Created By <p>${project.createdBy}</p>`;
       projectAbstract.textContent = `${project.abstract}`;
       project.authors.forEach((author, i) => {
         projectAuthors.innerHTML += `<p class="card-text text-left">${author}</p>`;
@@ -264,6 +266,16 @@ if (path.includes("viewproject.html")) {
           projectTags.innerHTML = ` <a href="#">${project.tags}</a>`;
         }
       });
+    }
+    const getUser = await fetch("/api/users/" + id);
+    if (getUser.ok) {
+      const user = await getUser.json();
+      projectAuthor.innerHTML = `
+       <p>
+          Created By <br> ${user.firstname} ${user.lastname}
+      </p>`;
+    } else {
+      console.log(getUser);
     }
   };
 }
