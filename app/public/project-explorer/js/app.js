@@ -254,8 +254,8 @@ if (path.includes("viewproject.html")) {
     const projectAuthors = projectInfo.querySelector("#project_authors");
     const projectTags = projectInfo.querySelector("#project_tags");
     const resp = await fetch(`/api/projects/${projectId}`);
+    const project = await resp.json();
     if (resp.ok) {
-      const project = await resp.json();
       projectName.textContent = `${project.name}`;
       projectAbstract.textContent = `${project.abstract}`;
       project.authors.forEach((author, i) => {
@@ -267,7 +267,7 @@ if (path.includes("viewproject.html")) {
         }
       });
     }
-    const getUser = await fetch("/api/users/" + id);
+    const getUser = await fetch("/api/users/" + project.createdBy);
     if (getUser.ok) {
       const user = await getUser.json();
       projectAuthor.innerHTML = `
