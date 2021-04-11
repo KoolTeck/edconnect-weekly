@@ -1,0 +1,17 @@
+#login,
+#logout,
+#username {
+  cursor: pointer;
+}
+
+.row {
+  justify-content: center;
+  align-items: center;
+}
+
+div.container.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20rem auto;
+}
