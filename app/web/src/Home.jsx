@@ -37,7 +37,7 @@ const Home = () => {
                 all departments at your institution. You can submit your project
                 and search for projects submitted by others to learn from.
               </p>
-              {!cookies && (
+              {Object.keys(cookies).length = 0 && (
                 <>
                   <Button variant="primary" size="lg" href="/signup">
                     Get Started
