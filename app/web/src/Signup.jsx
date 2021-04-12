@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 import Layout from "./shared/Layout";
 import { Form, Alert, Col, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { setCookie } from "./App";
 
 const Signup = () => {
   const [programs, setPrograms] = useState([]);
@@ -19,7 +19,6 @@ const Signup = () => {
   const [progOnsubmit, setProgramOnChange] = useState("");
   const [gradYearOnsubmit, setGradYearOnSelect] = useState("");
   let history = useHistory();
-  const [cookies, setCookie] = useCookies(["uid"]);
 
   useEffect(() => {
     const getPrograms = async () => {
@@ -70,9 +69,7 @@ const Signup = () => {
     });
     const user = await resp.json();
     if (resp.status === 200) {
-      setCookie("uid", user.data.id, {
-        path: "/",
-      });
+      setCookie("uid", user.data.id);
 
       history.push("/");
     } else {

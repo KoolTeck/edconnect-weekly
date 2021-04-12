@@ -1,39 +1,15 @@
-import React from 'react'
+import React from "react";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
-import { useCookies } from "react-cookie";
-import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { deleteCookie, getCookie } from "../App";
 
 const Header = () => {
   const [loggedin, setloggedin] = useState(false);
   const [username, setUsername] = useState("");
-  const [cookies, removeCookie] = useCookies(["uid"]);
+  const fetchCookie = getCookie("uid");
 
   let history = useHistory();
-
-  // useEffect(() => {
-  //   const getUser = () => {
-  //     const setLogin = async () => {
-  //       if (cookies.uid) {
-  //         const resp = await fetch(`/api/users/${cookies.uid}`);
-  //         const user = await resp.json();
-  //         if (resp.ok) {
-  //           setloggedin(true);
-  //           setUsername(user.firstname);
-  //         } else {
-  //           setloggedin(false);
-  //           setUsername("");
-  //         }
-  //       }
-  //     };
-
-  //     setLogin();
-  //   };
-  //   getUser();
-  // }, []);
-
-  // delete cookie
-
   useEffect(() => {
     const setLogin = async () => {
       const userFromServer = await FetchUser();
@@ -46,16 +22,12 @@ const Header = () => {
   }, []);
 
   const FetchUser = async () => {
-    if (cookies.uid) {
-      const resp = await fetch(`/api/users/${cookies.uid}`);
+    if (fetchCookie) {
+      const resp = await fetch(`/api/users/${fetchCookie}`);
       const user = await resp.json();
       return user;
     }
   };
-
-  function deleteCookie(cname) {
-    document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-  }
 
   const logOut = () => {
     deleteCookie("uid");

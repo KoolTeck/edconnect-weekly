@@ -2,11 +2,11 @@ import React from "react";
 import Layout from "./shared/Layout";
 import { Jumbotron, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { getCookie } from "./App";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
-  const [cookies] = useCookies();
+  const findCookie = getCookie("uid");
 
   useEffect(() => {
     const getProjects = async () => {
@@ -21,7 +21,6 @@ const Home = () => {
     const res = await fetch("/api/projects");
     const projects = await res.json();
     projects.length = 4;
-    //  projects.reverse();
     return projects;
   };
 
@@ -37,7 +36,7 @@ const Home = () => {
                 all departments at your institution. You can submit your project
                 and search for projects submitted by others to learn from.
               </p>
-              {Object.keys(cookies).length = 0 && (
+              {findCookie === "" && (
                 <>
                   <Button variant="primary" size="lg" href="/signup">
                     Get Started

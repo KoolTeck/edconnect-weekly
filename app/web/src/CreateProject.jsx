@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 import Layout from "./shared/Layout";
 import { Form, Alert, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { getCookie } from "./App";
 
 const CreateProject = () => {
   const [alert, setAlert] = useState([]);
@@ -13,11 +13,11 @@ const CreateProject = () => {
   const [authors, setAuthors] = useState("");
   const [tags, setTags] = useState("");
   let location = useHistory();
-  const [cookies, setCookie] = useCookies(["uid"]);
+  const fetchCookie = getCookie("uid");
 
   // creating a project by a user
   window.onload = () => {
-    if (!cookies.uid) {
+    if (fetchCookie === "") {
       location.push("/");
     }
   };

@@ -1,6 +1,5 @@
-import React from 'react'
+import React from "react";
 import Layout from "./shared/Layout";
-// import { Form, Alert, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -8,7 +7,6 @@ const Project = () => {
   const [project, setProject] = useState([]);
   const [projectAuthors, setProjectAuthors] = useState([]);
   const [projectTags, setProjectTags] = useState([]);
-  // const [createdBy, setCreatedBy] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 

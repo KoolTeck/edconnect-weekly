@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 import Layout from "./shared/Layout";
 import { Form, Alert, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { setCookie } from "./App";
 
 const Login = () => {
   const [alert, setAlert] = useState([]);
@@ -11,7 +11,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let location = useHistory();
-  const [cookies, setCookie] = useCookies(["uid"]);
   const handleSubmit = async (eve) => {
     eve.preventDefault();
     await setLogin();
@@ -28,9 +27,7 @@ const Login = () => {
     });
     if (resp.status === 200) {
       const user = await resp.json();
-      setCookie("uid", user.data.id, {
-        path: "/",
-      });
+      setCookie("uid", user.data.id);
       location.push("/");
     } else {
       setAlert("Invalid email/password");
