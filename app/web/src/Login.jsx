@@ -43,7 +43,7 @@ const Login = () => {
             {alert}
           </Alert>
         )}
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id="loginForm">
           <Form.Row>
             <Form.Label htmlFor="name"> Email Address:</Form.Label>
             <Form.Control
@@ -70,7 +70,7 @@ const Login = () => {
           </Form.Row>
 
           <Button className="mt-3 mb-3" variant="primary" type="submit">
-            Continue
+            Login
           </Button>
         </Form>
       </div>

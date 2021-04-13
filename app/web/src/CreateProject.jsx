@@ -68,7 +68,11 @@ const CreateProject = () => {
       <div className="mx-auto w-50 mt-5">
         <h2>Submit Project</h2>
         {show && <AlertDanger />}
-        <Form onSubmit={handleSubmit}>
+        <Form
+          onSubmit={handleSubmit}
+          name="submitProject"
+          id="createProjectForm"
+        >
           <Form.Row>
             <Form.Label htmlFor="name"> Project Name</Form.Label>
             <Form.Control
