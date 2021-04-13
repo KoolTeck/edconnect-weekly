@@ -42,7 +42,7 @@ const CreateProject = () => {
 
     const reply = await resp.json();
     if (resp.status === 200) {
-      location.push("/");
+      location.push("/login");
     } else {
       setAlert(reply.errors);
       setShow(true);
