@@ -58,7 +58,7 @@ const Header = () => {
               </Button>
             </Form>
             <Nav>
-              <Nav.Link href="/projects/">Projects</Nav.Link>
+              <Nav.Link href="/projects/id">Projects</Nav.Link>
               <Nav.Link href="/projects/submit">Submit</Nav.Link>
             </Nav>
           </Nav>
