@@ -32,7 +32,8 @@ const Project = () => {
 
   // console.log(path.search.substring(4));
   const fetchProject = async () => {
-    let projectId = path.id.substring(3);
+    let projectId = path.id;
+    
     const resp = await fetch(`/api/projects/${projectId}`);
     const data = await resp.json();
     if (resp.ok) {
