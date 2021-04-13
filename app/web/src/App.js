@@ -7,7 +7,6 @@ import Signup from "./Signup";
 import CreateProject from "./CreateProject";
 import Login from "./Login";
 import Project from "./Project";
-import Error from "./Error";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path="/projects/submit" component={CreateProject} />
         <Route path="/login" component={Login} />
         <Route path="/projects/:id" component={Project} />
-        <Route path="*" component={Error} />
       </Switch>
     </Router>
   );
