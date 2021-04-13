@@ -14,10 +14,10 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact={true} component={Home} />
-        <Route path="/signup" exact={true} component={Signup} />
+        <Route path="/signup" component={Signup} />
         <Route path="/projects/submit" component={CreateProject} />
         <Route path="/login" component={Login} />
-        <Route path="/projects" component={Project} />
+        <Route path="/projects/:id" component={Project} />
         <Route path="*" component={Error} />
       </Switch>
     </Router>
@@ -26,7 +26,7 @@ function App() {
 
 // cookie management functions
 export function setCookie(cname, cvalue) {
-  document.cookie = `${cname}=${cvalue};path=/;`; 
+  document.cookie = `${cname}=${cvalue};path=/;`;
 }
 
 // delete cookie

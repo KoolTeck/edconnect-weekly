@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./shared/Layout";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Project = () => {
   const [project, setProject] = useState([]);
@@ -10,7 +10,7 @@ const Project = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 
-  const path = useLocation();
+  const path = useParams();
 
   useEffect(() => {
     const getProject = async () => {
@@ -32,8 +32,7 @@ const Project = () => {
 
   // console.log(path.search.substring(4));
   const fetchProject = async () => {
-    let projectId = path.search;
-    projectId = projectId.substring(4);
+    let projectId = path.id.substring(3);
     const resp = await fetch(`/api/projects/${projectId}`);
     const data = await resp.json();
     if (resp.ok) {

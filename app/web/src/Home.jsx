@@ -70,7 +70,7 @@ const Home = () => {
                         <Card.Body>
                           <Card.Title>
                             {
-                              <Card.Link href={`/projects?id=${project.id}`}>
+                              <Card.Link href={`/projects/id=${project.id}`}>
                                 {project.name}
                               </Card.Link>
                             }
