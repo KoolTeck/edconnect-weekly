@@ -18,7 +18,7 @@ const CreateProject = () => {
   // creating a project by a user
   window.onload = () => {
     if (fetchCookie === "") {
-      location.push("/");
+      location.push("/login");
     }
   };
   const handleSubmit = async (eve) => {
