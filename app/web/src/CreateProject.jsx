@@ -104,7 +104,7 @@ const CreateProject = () => {
               <Form.Label htmlFor="authors"> Author(s)</Form.Label>
               <Form.Control
                 value={authors}
-                name="abstract"
+                name="authors"
                 onChange={(eve) => {
                   let authorsTxt = eve.target.value.split(",");
                   let authorArr = authorsTxt.map((author) => author.trim());
