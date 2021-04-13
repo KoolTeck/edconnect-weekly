@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { deleteCookie, getCookie } from "../App";
 
@@ -8,8 +8,6 @@ const Header = () => {
   const [loggedin, setloggedin] = useState(false);
   const [username, setUsername] = useState("");
   const fetchCookie = getCookie("uid");
-  const path = useParams();
-  let projectId = path.id;
 
   let history = useHistory();
   useEffect(() => {
@@ -60,10 +58,7 @@ const Header = () => {
               </Button>
             </Form>
             <Nav>
-            
-              {projectId === undefined ? null : (
-                <Nav.Link href={`/projects/${projectId}`}>Projects</Nav.Link>
-              )}
+              <Nav.Link href="/projects/">Projects</Nav.Link>
               <Nav.Link href="/projects/submit">Submit</Nav.Link>
             </Nav>
           </Nav>
