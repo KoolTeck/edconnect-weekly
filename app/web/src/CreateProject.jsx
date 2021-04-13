@@ -78,6 +78,7 @@ const CreateProject = () => {
             <Form.Control
               type="text"
               value={name}
+              name="name"
               onChange={(eve) => {
                 setName(eve.target.value);
               }}
@@ -90,6 +91,7 @@ const CreateProject = () => {
               as="textarea"
               rows={10}
               value={abstract}
+              name="abstract"
               onChange={(eve) => {
                 setAbstract(eve.target.value);
               }}
@@ -100,6 +102,7 @@ const CreateProject = () => {
             <Form.Label htmlFor="authors"> Author(s)</Form.Label>
             <Form.Control
               value={authors}
+              name="abstract"
               onChange={(eve) => {
                 let authorsTxt = eve.target.value.split(",");
                 let authorArr = authorsTxt.map((author) => author.trim());
@@ -112,6 +115,7 @@ const CreateProject = () => {
             <Form.Label htmlFor="tags"> Tag(s)</Form.Label>
             <Form.Control
               value={tags}
+              name="tags"
               onChange={(eve) => {
                 let tagsTxt = eve.target.value.split(",");
                 let tagsArr = tagsTxt.map((tag) => tag.trim());

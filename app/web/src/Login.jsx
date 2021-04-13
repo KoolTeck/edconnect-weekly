@@ -50,6 +50,7 @@ const Login = () => {
               type="email"
               placeholder={"enter email"}
               value={email}
+              name="email"
               onChange={(eve) => {
                 setEmail(eve.target.value);
               }}
@@ -62,6 +63,7 @@ const Login = () => {
               type="password"
               placeholder="enter password"
               value={password}
+              name="password"
               onChange={(eve) => {
                 setPassword(eve.target.value);
               }}

@@ -144,6 +144,7 @@ const Signup = () => {
               <Form.Label htmlFor="matricNumber">Matric Number:</Form.Label>
               <Form.Control
                 value={matricNo}
+                name="matricNo"
                 onChange={(eve) => setMatricNo(eve.target.value)}
                 name="matricNumber"
               />
