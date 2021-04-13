@@ -53,7 +53,7 @@ const Project = () => {
   };
   return (
     <Layout>
-      <main class="project_info">
+      <main className="project_info">
         <div className="container mt-5 ">
           {/* <!-- single project details start --> */}
 
