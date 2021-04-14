@@ -33,7 +33,7 @@ const Project = () => {
   // console.log(path.search.substring(4));
   const fetchProject = async () => {
     let projectId = path.id;
-    
+
     const resp = await fetch(`/api/projects/${projectId}`);
     const data = await resp.json();
     if (resp.ok) {
@@ -121,11 +121,15 @@ const Project = () => {
                   <div className="card-body" id="project_authors">
                     {projectAuthors.join(", ")}
                   </div>
-                  <div className="card-footer" id="#project_tags">
-                    {projectTags.length > 1
-                      ? projectTags.join(", ")
-                      : projectTags}
-                  </div>
+                  {projectTags.length > 1 ? (
+                    <div className="card-footer" id="#project_tags">
+                      {projectTags.join(", ")}
+                    </div>
+                  ) : (
+                    <div className="card-footer" id="#project_tags">
+                      {projectTags.join(", ")}
+                    </div>
+                  )}
                 </div>
 
                 <div className="card mt-3">
