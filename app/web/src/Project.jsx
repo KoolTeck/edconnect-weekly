@@ -121,15 +121,9 @@ const Project = () => {
                   <div className="card-body" id="project_authors">
                     {projectAuthors.join(", ")}
                   </div>
-                  {projectTags.length > 1 ? (
-                    <div className="card-footer" id="#project_tags">
-                      {projectTags.join(", ")}
-                    </div>
-                  ) : (
-                    <div className="card-footer" id="#project_tags">
-                      {projectTags.join(", ")}
-                    </div>
-                  )}
+                  <div className="card-footer" id="#project_tags">
+                    {projectTags.join(", ")}
+                  </div>
                 </div>
 
                 <div className="card mt-3">
