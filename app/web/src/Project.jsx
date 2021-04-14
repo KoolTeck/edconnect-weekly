@@ -118,7 +118,9 @@ const Project = () => {
                 <h5 className="pt-5 pb-2 border-bottom">Project Details</h5>
                 <h5 className="card-header">Author(s)</h5>
                 <div className="card">
-                  <div className="card-body" id="project_authors">{projectAuthors.join(", ")}</div>
+                  <div className="card-body" id="project_authors">
+                    {projectAuthors.join(", ")}
+                  </div>
                   <div className="card-footer" id="#project_tags">
                     {projectTags.length > 1
                       ? projectTags.join(", ")
