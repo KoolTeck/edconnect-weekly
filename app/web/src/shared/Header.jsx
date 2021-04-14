@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   return (
-    <>
+    <header>
       <Navbar
         bg="primary"
         variant="dark"
@@ -67,7 +67,7 @@ const Header = () => {
             {loggedin ? (
               <Nav.Link onClick={logOut}>Logout</Nav.Link>
             ) : (
-              <Nav.Link href="/signup">/Sign Up/i</Nav.Link>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
             )}
             {loggedin ? (
               <Nav.Link>
@@ -79,7 +79,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </header>
   );
 };
 
