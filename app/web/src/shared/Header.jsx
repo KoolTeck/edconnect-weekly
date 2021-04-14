@@ -67,7 +67,7 @@ const Header = () => {
             {loggedin ? (
               <Nav.Link onClick={logOut}>Logout</Nav.Link>
             ) : (
-              <Nav.Link href="/signup">Sign Up</Nav.Link>
+              <Nav.Link href="/signup">/Sign Up/i</Nav.Link>
             )}
             {loggedin ? (
               <Nav.Link>
