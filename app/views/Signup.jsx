@@ -37,7 +37,7 @@ const Signup = ({ programs, graduationYears, errors, data }) => {
             <Col>
               <Form.Label htmlFor="firstname">First Name</Form.Label>
               <Form.Control
-                name="firstname"
+                name="firstName"
                 value={firstName}
                 onChange={(eve) => setFirstName(eve.target.value)}
               />
@@ -45,7 +45,7 @@ const Signup = ({ programs, graduationYears, errors, data }) => {
             <Col>
               <Form.Label htmlFor="lastname">Last Name</Form.Label>
               <Form.Control
-                name="lastname"
+                name="lastName"
                 value={lastName}
                 onChange={(eve) => setLastName(eve.target.value)}
               />
