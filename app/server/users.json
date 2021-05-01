@@ -21,44 +21,14 @@
       "graduationYear": "2015"
     },
     {
-      "id": "qr88vcqhqee",
-      "firstname": "john",
-      "lastname": "doe",
-      "email": "johndoe@gmail.com",
-      "password": "doe1234567",
-      "matricNumber": "05/07778",
-      "program": "Computer_Information_Systems",
-      "graduationYear": "2016"
-    },
-    {
-      "id": "x4245tio798",
-      "firstname": "jeje",
-      "lastname": "jejemiwa",
-      "email": "jeje@mail.com",
-      "password": "jej1234567",
-      "matricNumber": "05/0779",
-      "program": "Computer_Science",
+      "id": "ow64h5hhmia",
+      "firstname": "caro",
+      "lastname": "dfed",
+      "email": "sde@gmail.com",
+      "password": "kool1234",
+      "matricNumber": "05/07778sd",
+      "program": "Computer,Science",
       "graduationYear": "2015"
-    },
-    {
-      "id": "c2piy8idjdo",
-      "firstname": "jeje",
-      "lastname": "jejemiwa",
-      "email": "jej1e@mail.com",
-      "password": "123fkjfjmf",
-      "matricNumber": "05/07771",
-      "program": "Computer_Science",
-      "graduationYear": "2015"
-    },
-    {
-      "id": "n4ei9lo93l",
-      "firstname": "Jones",
-      "lastname": "smith",
-      "email": "smith@gmail.com",
-      "password": "1234233",
-      "matricNumber": "05/07772",
-      "program": "Computer_Information_Systems",
-      "graduationYear": "2020"
     }
   ]
 }

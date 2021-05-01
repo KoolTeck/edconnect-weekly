@@ -1,41 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { deleteCookie, getCookie } from "../App";
 
-const Header = () => {
-  const [loggedin, setloggedin] = useState(false);
-  const [username, setUsername] = useState("");
-  const fetchCookie = getCookie("uid");
-
-  let history = useHistory();
-  useEffect(() => {
-    const setLogin = async () => {
-      const userFromServer = await FetchUser();
-      if (userFromServer !== undefined) {
-        setloggedin(true);
-        setUsername(userFromServer.firstname);
-      }
-    };
-    setLogin();
-  }, []);
-
-  const FetchUser = async () => {
-    if (fetchCookie) {
-      const resp = await fetch(`/api/users/${fetchCookie}`);
-      const user = await resp.json();
-      return user;
-    }
-  };
-
-  const logOut = () => {
-    deleteCookie("uid");
-    setloggedin(false);
-    setUsername("");
-    history.push("/");
-  };
-
+const Header = ({ user }) => {
   return (
     <header>
       <Navbar
@@ -64,14 +30,14 @@ const Header = () => {
           </Nav>
 
           <Nav className="justify-content-end">
-            {loggedin ? (
-              <Nav.Link onClick={logOut}>Logout</Nav.Link>
+            {user !== undefined ? (
+              <Nav.Link href="/logout">Logout</Nav.Link>
             ) : (
               <Nav.Link href="/signup">Sign Up </Nav.Link>
             )}
-            {loggedin ? (
-              <Nav.Link>
-                {"Hi, "} {username}
+            {user !== undefined ? (
+              <Nav.Link id="username">
+                {"Hi, "} {user.firstname}
               </Nav.Link>
             ) : (
               <Nav.Link href={"/login"}>Login</Nav.Link>
