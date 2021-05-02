@@ -10,7 +10,7 @@ router.get("/projects/submit", (req, res) => {
   if (user) {
     res.render("CreateProject", { data, error, user });
   } else {
-    res.redirect("/");
+    res.redirect("/login");
   }
 });
 
