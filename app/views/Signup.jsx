@@ -87,10 +87,9 @@ const Signup = ({ programs, graduationYears, errors, data }) => {
               <Form.Label htmlFor="program">Program:</Form.Label>
               <Form.Control as="select" name="program">
                 {programs.map((prog, i) => {
-                  const progOption = prog.split(" ");
                   return (
-                    <option key={i} value={progOption}>
-                      {progOption}
+                    <option key={i} value={prog}>
+                      {prog}
                     </option>
                   );
                 })}
