@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 
 const Header = ({ user }) => {
+  console.log(user);
   return (
     <header>
       <Navbar
@@ -36,9 +37,7 @@ const Header = ({ user }) => {
               <Nav.Link href="/signup">Sign Up </Nav.Link>
             )}
             {user !== undefined ? (
-              <Nav.Link id="username">
-                {"Hi, "} {user.firstname}
-              </Nav.Link>
+              <Nav.Link id="username">{`Hi, ${user.firstname}`}</Nav.Link>
             ) : (
               <Nav.Link href={"/login"}>Login</Nav.Link>
             )}

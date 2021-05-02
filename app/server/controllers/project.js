@@ -45,7 +45,6 @@ router.get("/project/:id", (req, res) => {
   const id = req.params.id;
   const singleProject = project.getById(id);
   const pCreator = user.getById(singleProject.createdBy);
-  console.log(singleProject, pCreator);
   res.render("Project", { singleProject, pCreator });
 });
 

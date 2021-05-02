@@ -29,6 +29,16 @@
       "matricNumber": "05/07778sd",
       "program": "Computer,Science",
       "graduationYear": "2015"
+    },
+    {
+      "id": "q5n5c9qbcnc",
+      "firstname": "john",
+      "lastname": "Doe",
+      "email": "johndoe@gmail.com",
+      "password": "doe1234567jh",
+      "matricNumber": "05/0777wm",
+      "program": "Computer Science",
+      "graduationYear": "2015"
     }
   ]
 }

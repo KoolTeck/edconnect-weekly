@@ -12,23 +12,26 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", (req, res) => {
   const {
-    firstname,
-    lastname,
+    firstName,
+    lastName,
     email,
     password,
     matricNumber,
     program,
     graduationYear,
   } = req.body;
-  const createUser = user.create({
-    firstname,
-    lastname,
-    email,
-    password,
-    matricNumber,
-    program,
-    graduationYear,
-  });
+
+  const data = {
+    firstname: firstName,
+    lastname: lastName,
+    email: email,
+    password: password,
+    matricNumber: matricNumber,
+    program: program,
+    graduationYear: graduationYear,
+  };
+
+  const createUser = user.create(data);
 
   const userCreated = createUser[0];
 

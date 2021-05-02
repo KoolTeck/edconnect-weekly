@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./shared/Layout";
 import { Form, Alert, Col, Button } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const Signup = ({ programs, graduationYears, errors, data }) => {
   // handle register
