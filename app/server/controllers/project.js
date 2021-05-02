@@ -16,7 +16,7 @@ router.get("/projects/submit", (req, res) => {
 
 router.post("/projects/submit", (req, res) => {
   const { name, abstract, authors, tags } = req.body;
-  let createdBy = req.session.user.id;
+  // let createdBy = req.session.user.id;
 
   let authorsArr = authors.split(",");
   let tagsArr = tags.split(",");
@@ -25,7 +25,7 @@ router.post("/projects/submit", (req, res) => {
     abstract: abstract,
     authors: authorsArr,
     tags: tagsArr,
-    createdBy: createdBy,
+    // createdBy: createdBy,
   };
 
   const createNewProject = project.create(data);
