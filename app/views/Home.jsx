@@ -3,6 +3,7 @@ import Layout from "./shared/Layout";
 import { Jumbotron, Button, Container, Row, Col, Card } from "react-bootstrap";
 
 const Home = ({ projects, user }) => {
+  projects.reverse();
   projects.length = 4;
   return (
     <Layout user={user}>
